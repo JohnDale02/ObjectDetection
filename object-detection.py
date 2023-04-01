@@ -1,10 +1,10 @@
-import jetson.inference
-import jetson.utils
+import jetson_inference
+import jetson_utils
 
-net = jetson.inferece.detectNet("ssd-mobilenet-v2", threshold=0.5)
+net = jetson_inference.detectNet("ssd-mobilenet-v2", threshold=0.5)
 # Createing net with pretrained ssd-mobilenet-v2 
-camera = jetson.utils.gstCamera(1280, 720, "/dev/video0")
-display = jetson.utils.glDisplay()
+camera = jetson_utils.gstCamera(1280, 720, "/dev/video0")
+display = jetson_utils.glDisplay()
 
 while display.IsOpen():
     img, width, height = camera.CaptureRGBA()
