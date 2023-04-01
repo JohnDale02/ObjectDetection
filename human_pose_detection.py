@@ -6,7 +6,7 @@ import argparse
 # parse the command line
 parser = argparse.ArgumentParser(description="Run pose estimation DNN on a video/image stream.", 
                                  formatter_class=argparse.RawTextHelpFormatter, 
-                                 epilog=poseNet.Usage() + videoSource.Usage() + videoOutput.Usage() + Log.Usage())
+                                 epilog=jetson_inference.poseNet.Usage() + jetson_utils.videoSource.Usage() + jetson_utils.videoOutput.Usage() + jetson_utils.Log.Usage())
 
 parser.add_argument("input", type=str, default="", nargs='?', help="URI of the input stream")
 parser.add_argument("output", type=str, default="", nargs='?', help="URI of the output stream")
@@ -22,11 +22,11 @@ except:
 	sys.exit(0)
 
 # load the pose estimation model
-net = poseNet(args.network, sys.argv, args.threshold)
+net = jetson_inference.poseNet(args.network, sys.argv, args.threshold)
 
 # create video sources & outputs
-input = videoSource(args.input, argv=sys.argv)
-output = videoOutput(args.output, argv=sys.argv)
+input = jetson_utils.videoSource(args.input, argv=sys.argv)
+output = jetson_utils.videoOutput(args.output, argv=sys.argv)
 
 # process frames until EOS or the user exits
 while True:
