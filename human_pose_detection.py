@@ -1,7 +1,7 @@
 import jetson_inference
 import jetson_utils
 
-net = jetson_inference.detectNet("densenet121-body", threshold=0.5)
+net = jetson_inference.detectNet("Pose-DenseNet121-body", threshold=0.5)
 # Createing net with pretrained densenet121-body human pose 
 camera = jetson_utils.gstCamera(1280, 720, "/dev/video0")
 display = jetson_utils.glDisplay()
