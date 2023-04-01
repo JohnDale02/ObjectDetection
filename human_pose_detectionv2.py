@@ -50,5 +50,5 @@ while display.IsOpen():
     display.RenderOnce(img, width, height)
 
     # update the title bar
-    display.SetStatus("{:s} | Network {:.0f} FPS".format(args.network, net.GetNetworkFPS()))
+    display.SetTitle("{:s} | Network {:.0f} FPS".format(args.network, net.GetNetworkFPS()))
 
